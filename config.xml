@@ -1,0 +1,119 @@
+<config>
+
+	<site>
+		<name>网易</name>
+		<url>http://www.163.com</url>
+		<index>
+			<regx_page>http://.*\.163\.com.*[s]*htm[l]*</regx_page>
+			<xpath>//div[@id='layout-news']/div[2]/div/ul/li/a</xpath>
+		</index>
+		<page>
+			<title>
+				<xpath>//h1[@id='h1title']</xpath>
+			</title>
+			<time>
+				<xpath>//div[@class='left']</xpath>
+				<regx>(\d{4}.\d{1,2}.\d{1,2}.*\d{1,2}:\d{1,2})</regx>
+				<regx_type>search</regx_type>
+			</time>
+			<source>
+				<xpath>//div[@class='left']</xpath>
+				<regx>来源[:：\s]*([^\s]+)有.*</regx>
+				<regx_type>search</regx_type>
+			</source>
+			<content>
+				<xpath>//div[@id='endText']/p</xpath>
+			</content>
+		</page>
+	</site>
+	
+	<site>
+		<name>新浪</name>
+		<url>http://www.sina.com.cn</url>
+		<index>
+			<regx_page>http://.*\.sina\.com\.cn.*[s]*htm[l]*</regx_page>
+			<!-- <xpath>//div[@class='mod06-cont']/ul/li/a</xpath> -->
+			<xpath>//div[@data-sudaclick='blk_news_all']/ul/li/a</xpath>
+		</index>
+		<page>
+			<title>
+				<xpath>//h1[@id='artibodyTitle']</xpath>
+			</title>
+			<time>
+				<xpath>//div[@class="artInfo"]</xpath>
+				<regx>(\d{4}.\d{1,2}.\d{1,2}.*\d{1,2}:\d{1,2})</regx>
+				<regx_type>search</regx_type>
+			</time>
+			<source>
+				<xpath>//div[@class="artInfo"]</xpath>
+				<regx>:\d{2}([^\s]*)[\s]*</regx>
+				<regx_type>search</regx_type>
+			</source>
+			<content>
+				<xpath>//div[@id='artibody']/p</xpath>
+			</content>
+		</page>
+	</site>
+
+
+
+	<site>
+		<name>凤凰</name>
+		<url>http://www.ifeng.com</url>
+		<index>
+			<regx_page>http://.*\.ifeng\.com.*[s]*htm[l]*</regx_page>
+			<xpath>//div[@id='headLineDefault']/ul/h1/a</xpath>
+			<xpath>//div[@id='headLineDefault']/ul/li/a</xpath>
+		</index>
+		<page>
+			<title>
+				<xpath>//h1[@id='artical_topic']</xpath>
+			</title>
+			<time>
+				<xpath>//div[@id='artical_sth']/p</xpath>
+				<regx>(\d{4}.\d{1,2}.\d{1,2}.*\d{1,2}:\d{1,2})</regx>
+				<regx_type>search</regx_type>
+			</time>
+			<source>
+				<xpath>//div[@id='artical_sth']/p</xpath>
+				<regx>来源[:：]*([^\s]*)[\s]*</regx>
+				<regx_type>search</regx_type>
+			</source>
+			<content>
+				<xpath>//div[@id='main_content']/p</xpath>
+			</content>
+		</page>
+	</site>
+	
+
+	
+
+
+	<site>
+		<name>搜狐</name>
+		<url>http://www.sohu.com</url>
+		<index>
+			<regx_page>http://.*\.sohu\.com.*[s]*htm[l]*</regx_page>
+			<xpath>//div[@id='top_news']/ul/li/a</xpath>
+		</index>
+		<page>
+			<title>
+				<xpath>//div[@id='container']/div/div[2]/h1</xpath>
+			</title>
+			<time>
+				<xpath>//div[@class='time-source']</xpath>
+				<regx>(\d{4}.\d{1,2}.\d{1,2}.*\d{1,2}:\d{1,2})</regx>
+				<regx_type>search</regx_type>
+			</time>
+			<source>
+				<xpath>//div[@class='time-source']</xpath>
+				<regx>来源[:：](.*)(作者)*</regx>
+				<regx_type>search</regx_type>
+			</source>
+			<content>
+				<xpath>//div[@id='contentText']/div/p</xpath>
+			</content>
+		</page>
+	</site>
+	
+</config>
